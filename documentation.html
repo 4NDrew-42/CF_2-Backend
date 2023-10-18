@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Film Information API Documentation</title>
+	</head>
+	<body>
+		<h1>Film Information API Documentation</h1>
+
+		<h2>Introduction</h2>
+		<p>
+			Welcome to the Film Information API. This API provides information about
+			films. Objective To build the server-side component of a “movies” web
+			application. The web application will provide users with access to
+			information about different movies, directors, and genres. Users will be
+			able to sign up, update their personal information, and create a list of
+			their favorite movies.
+		</p>
+
+		<h2>API Endpoints</h2>
+
+		<h3>/films</h3>
+		<p>Gets a list of all films.</p>
+		<pre>GET /films</pre>
+
+		<h3>/films/{id}</h3>
+		<p>Gets a film by its ID.</p>
+		<pre>GET /films/{id}</pre>
+
+		<h2>Examples</h2>
+
+		<p>To get a list of films:</p>
+		<pre>GET http://localhost:8080/films</pre>
+
+		<p>To get a film by ID:</p>
+		<pre>GET http://localhost:8080/films/1</pre>
+	</body>
+</html>
