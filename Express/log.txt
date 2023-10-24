@@ -5,3 +5,5 @@
 ::1 - - [24/Oct/2023:00:32:35 +0000] "GET /documentation.html HTTP/1.1" 304 - "-" "Mozilla/5.0 (iPad; CPU OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/87.0.4280.77 Mobile/15E148 Safari/604.1"
 ::1 - - [24/Oct/2023:00:37:14 +0000] "GET /movies HTTP/1.1" - - "-" "Mozilla/5.0 (iPad; CPU OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/87.0.4280.77 Mobile/15E148 Safari/604.1"
 ::1 - - [24/Oct/2023:00:37:53 +0000] "GET /documentation.html HTTP/1.1" - - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36"
+::1 - - [24/Oct/2023:01:02:42 +0000] "GET /documentation.html HTTP/1.1" - - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36"
+::1 - - [24/Oct/2023:01:09:45 +0000] "GET /documentation.html HTTP/1.1" - - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36"
