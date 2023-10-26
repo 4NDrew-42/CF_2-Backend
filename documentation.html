@@ -1,37 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Film Information API Documentation</title>
+		<meta charset="UTF-8" />
+		<title>ArtCine - API Documentation</title>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+				font-size: 14px;
+				line-height: 1.4;
+				margin: 0;
+				padding: 0;
+				color: #333;
+			}
+
+			header {
+				background: #333;
+				color: #fff;
+				padding: 20px;
+			}
+
+			header h1 {
+				margin: 0;
+				padding: 0;
+				font-size: 24px;
+				line-height: 1;
+			}
+
+			header p {
+				font-size: 14px;
+			}
+
+			section {
+				padding: 20px;
+			}
+
+			section h2 {
+				margin-top: 0;
+			}
+
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				border: 1px solid #ccc;
+			}
+
+			table thead tr {
+				background: #333;
+				color: #fff;
+			}
+
+			table th,
+			table td {
+				padding: 10px;
+				border: 1px solid #ccc;
+				max-width: 300px;
+				overflow: auto;
+			}
+
+			table tbody tr:nth-child(even) {
+				background: #eee;
+			}
+
+			table tbody tr:hover {
+				background: #ddd;
+			}
+
+			table tbody tr td code {
+				display: block;
+				white-space: pre;
+			}
+
+			footer {
+				background: #333;
+				color: #fff;
+				padding: 20px;
+				text-align: center;
+			}
+
+			footer a {
+				color: #fff;
+			}
+		</style>
 	</head>
 	<body>
-		<h1>Film Information API Documentation</h1>
+		<header>
+			<h1>James Klein - ArtCine - API Documentation</h1>
+			<p>This API allows the browsing of movies, including viewing information, favoriting, deleting favorites.s</p>
+		</header>
 
-		<h2>Introduction</h2>
-		<p>
-			Welcome to the Film Information API. This API provides information about
-			films. Objective To build the server-side component of a “movies” web
-			application. The web application will provide users with access to
-			information about different movies, directors, and genres. Users will be
-			able to sign up, update their personal information, and create a list of
-			their favorite movies.
-		</p>
+		<section>
+			<h2>Introduction</h2>
+			<p>Welcome to the ArtCine API! This API provides endpoints for CRUD operations (Create, Read, Update, Delete) for movie data. Below you'll find a detailed guide for each endpoint.</p>
+		</section>
 
-		<h2>API Endpoints</h2>
+		<section>
+			<h2>Base URL</h2>
+			<p>
+				All endpoints stem from the base URL:
+				<code>https://api.themoviedb.org/</code>
+			</p>
+		</section>
+		<table>
+			<thead>
+				<tr>
+					<th>Endpoint</th>
+					<th>HTTP Method</th>
+					<th>Parameters</th>
+					<th>Request Example</th>
+					<th>Response Example</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><code>/movies</code></td>
+					<td>GET</td>
+					<td>None</td>
+					<td><code>GET /movies</code></td>
+					<td>JSON response with a list of movies</td>
+				</tr>
+				<tr>
+					<td><code>/movies/:title</code></td>
+					<td>GET</td>
+					<td><code>title</code></td>
+					<td><code>GET /movies/Inception</code></td>
+					<td>JSON response with details about the movie, including title, description, genre, director, actors, image URL, and whether or not the movie is favorited by the user</td>
+				</tr>
+				<tr>
+					<td><code>/genre/:name</code></td>
+					<td>GET</td>
+					<td><code>name</code></td>
+					<td><code>GET /genre/Thriller</code></td>
+					<td>JSON response with details about the genre</td>
+				</tr>
+				<tr>
+					<td><code>/director/:name</code></td>
+					<td>GET</td>
+					<td><code>name</code></td>
+					<td><code>GET /director/Christopher%20Nolan</code></td>
+					<td>JSON response with details about the director</td>
+				</tr>
+				<tr>
+					<td><code>/users</code></td>
+					<td>POST</td>
+					<td><code>username, password</code></td>
+					<td><code>POST /users {"username": "JohnDoe", "password": "pass123"}</code></td>
+					<td>JSON response confirming user registration</td>
+				</tr>
+				<tr>
+					<td><code>/users/:username</code></td>
+					<td>PUT</td>
+					<td><code>username</code></td>
+					<td><code>PUT /users/JohnDoe {"newUsername": "JaneDoe"}</code></td>
+					<td>JSON response confirming username update</td>
+				</tr>
+				<tr>
+					<td><code>/favorites/:username/:movieId</code></td>
+					<td>POST</td>
+					<td><code>username, movieId</code></td>
+					<td><code>POST /favorites/JohnDoe/42</code></td>
+					<td>Text confirming movie has been added to favorites</td>
+				</tr>
+				<tr>
+					<td><code>/favorites/:username/:movieId</code></td>
+					<td>DELETE</td>
+					<td><code>username, movieId</code></td>
+					<td><code>DELETE /favorites/JohnDoe/42</code></td>
+					<td>Text confirming movie has been removed from favorites</td>
+				</tr>
+				<tr>
+					<td><code>/users/:username</code></td>
+					<td>DELETE</td>
+					<td><code>username</code></td>
+					<td><code>DELETE /users/JohnDoe</code></td>
+					<td>Text confirming user has been deregistered</td>
+				</tr>
+			</tbody>
+		</table>
 
-		<h3>/films</h3>
-		<p>Gets a list of all films.</p>
-		<pre>GET /films</pre>
+		<section>
+			<h2>Additional Notes</h2>
+			<p>Ensure that your requests include proper authentication headers if needed. Any queries must be URL-encoded.</p>
+		</section>
 
-		<h3>/films/{id}</h3>
-		<p>Gets a film by its ID.</p>
-		<pre>GET /films/{id}</pre>
-
-		<h2>Examples</h2>
-
-		<p>To get a list of films:</p>
-		<pre>GET http://localhost:8080/films</pre>
-
-		<p>To get a film by ID:</p>
-		<pre>GET http://localhost:8080/films/1</pre>
+		<footer>
+			<p>
+				For additional support, contact
+				<a href="mailto:support@example.com">support@example.com</a>
+			</p>
+		</footer>
+		<!-- Code injected by live-server -->
 	</body>
 </html>
