@@ -1,15 +1,19 @@
-const { r } = require("tar");
+// Author: James Klein
+
+// Importing modules
 
 const express = require("express"),
-	app = express(),
 	bodyParser = require("body-parser"),
 	uuid = require("uuid");
+const app = express();
+const morgan = require("morgan");
 
 app.use(bodyParser.json());
 
+// User JSON data
 let users = [
 	{
-		id: "baf7df5b-1f86-471b-a949-6d45ef62f7ea",
+		id: "1",
 		username: "jane_doe",
 		email: "jane.doe@example.com",
 		password: "hashed_password1",
@@ -24,7 +28,7 @@ let users = [
 		],
 	},
 	{
-		id: "4c43a2fc-a8fa-4d6e-a167-bbe0cf130b39",
+		id: "2",
 		username: "john_smith",
 		email: "john.smith@example.com",
 		password: "hashed_password2",
@@ -44,6 +48,7 @@ let users = [
 	},
 ];
 
+// Movie JSON data
 let movies = [
 	{
 		Title: "Inception",
@@ -108,11 +113,13 @@ app.post("/users", (req, res) => {
 });
 
 app.post("/users/:id/favorites", (req, res) => {
+	res.send("Successful POST creating new favorite movie");
+
 	const { id } = req.params;
 	const user = users.find((user) => user.id === id);
 
 	if (user) {
-		user.favorites.push(req.body);
+		user.favorites.push(movieID);
 		res.status(201).send(user);
 	} else {
 		res.status(404).send("User not found.");
@@ -204,7 +211,7 @@ app.put("/users/:id/:movieTitle", (req, res) => {
 //Delete
 
 app.delete("/users/:id", (req, res) => {
-	const { id } = req.params;
+	/*const { id } = req.params;
 	const userIndex = users.findIndex((user) => user.id === id);
 
 	if (userIndex === -1) {
@@ -213,11 +220,12 @@ app.delete("/users/:id", (req, res) => {
 	} else {
 		users.splice(userIndex, 1);
 		res.status(204).send();
-	}
+	}*/
+	res.send("Successful DELETE removing user");
 });
 
-app.delete("/users/:id/favorites/:movieID", (req, res) => {
-	const { id, movieID } = req.params;
+app.delete("/users/:id/favorites/", (req, res) => {
+	/*const { id, movieID } = req.params;
 	const user = users.find((user) => user.id === id);
 	const movieIndex = user.favorites.findIndex((movie) => movie.id === movieID);
 
@@ -226,7 +234,8 @@ app.delete("/users/:id/favorites/:movieID", (req, res) => {
 		res.status(204).send();
 	} else {
 		res.status(404).send("User not found.");
-	}
+	} */
+	res.send("Successful DELETE removing favorite movie");
 });
 
 app.listen(8080, () => console.log("Your app is listening on port 8080"));

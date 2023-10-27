@@ -107,6 +107,7 @@
 		<table>
 			<thead>
 				<tr>
+					<th>Description</th>
 					<th>Endpoint</th>
 					<th>HTTP Method</th>
 					<th>Parameters</th>
@@ -116,6 +117,7 @@
 			</thead>
 			<tbody>
 				<tr>
+					<td>List of all movies</td>
 					<td><code>/movies</code></td>
 					<td>GET</td>
 					<td>None</td>
@@ -123,6 +125,7 @@
 					<td>JSON response with a list of movies</td>
 				</tr>
 				<tr>
+					<td>Single movie details</td>
 					<td><code>/movies/:title</code></td>
 					<td>GET</td>
 					<td><code>title</code></td>
@@ -130,20 +133,23 @@
 					<td>JSON response with details about the movie, including title, description, genre, director, actors, image URL, and whether or not the movie is favorited by the user</td>
 				</tr>
 				<tr>
-					<td><code>/genre/:name</code></td>
+					<td>Details about a genre</td>
+					<td><code>/movies/genre/:name</code></td>
 					<td>GET</td>
 					<td><code>name</code></td>
 					<td><code>GET /genre/Thriller</code></td>
 					<td>JSON response with details about the genre</td>
 				</tr>
 				<tr>
-					<td><code>/director/:name</code></td>
+					<td>Details about a director</td>
+					<td><code>/movies/director/:name</code></td>
 					<td>GET</td>
 					<td><code>name</code></td>
 					<td><code>GET /director/Christopher%20Nolan</code></td>
 					<td>JSON response with details about the director</td>
 				</tr>
 				<tr>
+					<td>User registration</td>
 					<td><code>/users</code></td>
 					<td>POST</td>
 					<td><code>username, password</code></td>
@@ -151,6 +157,7 @@
 					<td>JSON response confirming user registration</td>
 				</tr>
 				<tr>
+					<td>Update user details</td>
 					<td><code>/users/:username</code></td>
 					<td>PUT</td>
 					<td><code>username</code></td>
@@ -158,20 +165,23 @@
 					<td>JSON response confirming username update</td>
 				</tr>
 				<tr>
-					<td><code>/favorites/:username/:movieId</code></td>
+					<td>Add movie to favorites</td>
+					<td><code>/users/:username/favorites/:movieId</code></td>
 					<td>POST</td>
 					<td><code>username, movieId</code></td>
-					<td><code>POST /favorites/JohnDoe/42</code></td>
+					<td><code>POST /JohnDoe/favorites/{movie}</code></td>
 					<td>Text confirming movie has been added to favorites</td>
 				</tr>
 				<tr>
-					<td><code>/favorites/:username/:movieId</code></td>
+					<td>Remove movie from favorites</td>
+					<td><code>/users/:username/favorites/:movieId</code></td>
 					<td>DELETE</td>
 					<td><code>username, movieId</code></td>
 					<td><code>DELETE /favorites/JohnDoe/42</code></td>
 					<td>Text confirming movie has been removed from favorites</td>
 				</tr>
 				<tr>
+					<td>Delete a user</td>
 					<td><code>/users/:username</code></td>
 					<td>DELETE</td>
 					<td><code>username</code></td>

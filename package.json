@@ -2,17 +2,18 @@
   "name": "movie_api",
   "version": "1.0.0",
   "description": "",
-  "main": "serer.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "lodash": "^4.17.21",
     "uuid": "^9.0.1"
